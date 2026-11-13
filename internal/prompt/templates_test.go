@@ -366,6 +366,7 @@ func TestGetSystemPrompt_AntiTestSlopInstruction(t *testing.T) {
 		{name: "Design review", agent: "test", command: "design-review"},
 		{name: "Lookahead review", agent: "test", command: "lookahead"},
 		{name: "Test value review", agent: "test", command: "test-value"},
+		{name: "Conspiracy review", agent: "test", command: "conspiracy"},
 	}
 
 	for _, tt := range reviewPrompts {

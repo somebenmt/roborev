@@ -47,7 +47,7 @@ Each `[review.types.<name>]` table supports these fields:
 Names must start with a lowercase letter and contain only lowercase letters,
 digits, and hyphens. Names may not replace built-in types or their aliases:
 `default`, `review`, `general`, `security`, `design`, `lookahead`, `test-value`,
-and `exhaustive`. Names used by other built-in workflows are also reserved:
+`exhaustive`, and `conspiracy`. Names used by other built-in workflows are also reserved:
 `fix`, `refine`, and `classify`.
 
 A repository definition replaces a global definition with the same name. Its

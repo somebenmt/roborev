@@ -17,6 +17,9 @@ const (
 	ReviewTypeDesign    = "design"
 	ReviewTypeLookahead = "lookahead"
 	ReviewTypeTestValue = "test-value"
+	// ReviewTypeConspiracy connects every change to aliens, crystals, and
+	// numerology. Its revelations are advisory and never fail a review.
+	ReviewTypeConspiracy = "conspiracy"
 	// ReviewTypeExhaustive is the default code review told to report every
 	// supportable problem, with a finding count scaled to the change size.
 	ReviewTypeExhaustive = "exhaustive"
@@ -41,7 +44,7 @@ func IsGeneralReviewType(rt string) bool {
 func IsBuiltInReviewType(rt string) bool {
 	return IsGeneralReviewType(rt) || rt == ReviewTypeSecurity ||
 		rt == ReviewTypeDesign || rt == ReviewTypeLookahead ||
-		rt == ReviewTypeTestValue
+		rt == ReviewTypeTestValue || rt == ReviewTypeConspiracy
 }
 
 // ValidateReviewTypes canonicalizes, validates, and deduplicates
@@ -61,6 +64,7 @@ func validateReviewTypes(
 		ReviewTypeDesign:     true,
 		ReviewTypeLookahead:  true,
 		ReviewTypeTestValue:  true,
+		ReviewTypeConspiracy: true,
 		ReviewTypeExhaustive: true,
 	}
 	seen := make(map[string]bool, len(types))
@@ -90,7 +94,7 @@ func validReviewTypesHelp(custom map[string]bool) string {
 	types := []string{
 		ReviewTypeDefault, ReviewTypeSecurity,
 		ReviewTypeDesign, ReviewTypeLookahead, ReviewTypeTestValue,
-		ReviewTypeExhaustive,
+		ReviewTypeExhaustive, ReviewTypeConspiracy,
 	}
 	customTypes := make([]string, 0, len(custom))
 	for name := range custom {
@@ -104,7 +108,7 @@ func validReviewTypesHelp(custom map[string]bool) string {
 func ExplicitReviewTypes() []string {
 	return []string{
 		ReviewTypeSecurity, ReviewTypeDesign, ReviewTypeLookahead,
-		ReviewTypeTestValue, ReviewTypeExhaustive,
+		ReviewTypeTestValue, ReviewTypeExhaustive, ReviewTypeConspiracy,
 	}
 }
 

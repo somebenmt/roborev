@@ -188,6 +188,7 @@ roborev review --type design         # Design-focused review
 roborev review --type lookahead      # Time-series look-ahead bias review
 roborev review --type test-value     # Find tests that add no value
 roborev review --type exhaustive     # Default review that reports every supportable finding
+roborev review --type conspiracy     # Uncover what the change is really hiding
 roborev review --branch --type security  # Security review of branch
 ```
 
@@ -199,6 +200,7 @@ roborev review --branch --type security  # Security review of branch
 | `exhaustive` | The default review, told to report every problem it can support, including concrete low-severity ones, and how many findings a change of this size usually has (6 per 100 changed lines, at most 40). Expect more findings and longer, costlier reviews than the default. |
 | `lookahead` | Time-series look-ahead bias (a.k.a. peekahead / future-data leakage): window/lag direction, train/test ordering, fit-on-full-series, as-of join alignment, point-in-time correctness, label/target leakage |
 | `test-value` | Added or modified tests that protect nothing: tests of dependency behavior, self-confirming assertions, static text checks, unreachable scenarios, duplicate coverage, and fixtures that bypass the behavior under test. Confirmed findings default to medium severity. |
+| `conspiracy` | What the change is *really* about: numerology in the commit SHA and line counts, alien and crystal connections, misapplied theorems, and citations to viXra. Revelations carry no severity and always pass. |
 
 Review types work with all review modes (`--branch`, `--dirty`, `--since`,
 single commits, ranges).
@@ -209,12 +211,15 @@ single commits, ranges).
 the repository owns; it never recommends adding tests or expanding coverage.
 Normal code reviews keep their existing testing guidance.
 
+`conspiracy` is opt-in and for fun. It reports revelations, not defects, so
+the review always passes and never blocks a commit or a PR.
+
 The `security` and `design` types can have their own agent and model
 configuration via `{type}_agent` and `{type}_model` in `.roborev.toml` or global
 config. See
 [Workflow-Specific Agent and Model](/docs/configuration/#workflow-specific-agent-and-model).
-`lookahead` and `test-value` have no dedicated fields, so pin them through the
-generic per-type block:
+`lookahead`, `test-value`, and `conspiracy` have no dedicated fields, so pin
+them through the generic per-type block:
 
 ```toml
 [analyze.lookahead]

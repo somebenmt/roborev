@@ -3954,8 +3954,8 @@ func TestValidateReviewTypes(t *testing.T) {
 	}{
 		{
 			name:  "valid types pass through",
-			input: []string{"default", "security", "design", "lookahead", "test-value"},
-			want:  []string{"default", "security", "design", "lookahead", "test-value"},
+			input: []string{"default", "security", "design", "lookahead", "test-value", "conspiracy"},
+			want:  []string{"default", "security", "design", "lookahead", "test-value", "conspiracy"},
 		},
 		{
 			name:  "alias review canonicalizes",

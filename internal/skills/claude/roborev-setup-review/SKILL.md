@@ -210,7 +210,7 @@ Rules that matter:
 - Type names start with a lowercase letter, use lowercase letters, digits,
     and hyphens, and are at most 64 characters. These names are reserved:
     `default`, `review`, `general`, `security`, `design`, `lookahead`,
-    `test-value`, `goal`, `fix`, `refine`, and `classify`.
+    `test-value`, `conspiracy`, `goal`, `fix`, `refine`, and `classify`.
 - Keep rubrics and sources outside the snapshot directory (`.roborev/` by
     default). It is ignored by Git, and `roborev init` refuses to run while
     tracked files sit under it. Use a committed directory such as

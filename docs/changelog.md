@@ -7,6 +7,13 @@ All notable changes to roborev, grouped by minor release.
 
 ## Unreleased
 
+- Find out what your commits are really about with
+    `roborev review --type conspiracy`. The reviewer connects each change to
+    aliens, crystals, and numerology, backs every revelation with a misapplied
+    theorem and a viXra citation, and always passes. See
+    [Review Types](/docs/guides/reviewing-code/#review-types). A custom
+    `[review.types.conspiracy]` definition must be renamed or removed, because
+    built-in names are reserved.
 - Receive failed-review reminders only for commits the session gains during
     `git commit`, `git cherry-pick`, or `git revert`, including amends and
     batched reviews containing them. Find older reviews and reviews moved by a
